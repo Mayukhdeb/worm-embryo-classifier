@@ -6,7 +6,7 @@ from flask import Flask, redirect, url_for, request, render_template, Response, 
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 
-# git -- gave my imports 
+# main imports 
 import numpy as np
 from numpy import moveaxis
 import torch
@@ -26,7 +26,6 @@ classes = ["gastrula", "comma", "fold", "l1" ]
 app = Flask(__name__)
 
 
-# You can use pretrained model from Keras
 ### loading model 
 
 class Net(nn.Module):
@@ -120,17 +119,16 @@ print('Yee haw ! Model loaded.  Check http://127.0.0.1:5000/')
 
 
 def model_predict(img, model):
-    img = img.resize((120, 90)) # git -- my own image size 
+    img = img.resize((120, 90)) # image size 
 
     # Preprocessing the image
     x = np.array(img)  ## 3D numpy array 
 
     x = cv2.cvtColor(x, cv2.COLOR_RGB2GRAY)  ## 2D grayscale now 
 
-    input_tensor =  torch.from_numpy(x).unsqueeze(0).unsqueeze(0).float()  ## git -- 4D torch tensor 
+    input_tensor =  torch.from_numpy(x).unsqueeze(0).unsqueeze(0).float()  ## 4D torch tensor 
 
-    # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction!
+   
    
     preds = torch.softmax(model(input_tensor, input_tensor).flatten(), dim = 0).detach().numpy()
     return preds  ## np array 
