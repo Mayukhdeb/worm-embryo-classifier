@@ -10,3 +10,5 @@
 ``` python app.py```
 4. Open this URL in your browser <br>
 ```http://127.0.0.1:5000/```
+
+Try dragging and dropping the sample images in the images folder to test it out in case you don't have images.
