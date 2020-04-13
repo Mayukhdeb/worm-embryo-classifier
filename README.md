@@ -2,6 +2,9 @@
 <img src= "images/screenshot.png" width = 80%>
 
 ## Usage:
+
+0. Install the required libraries <br>
+```pip install -r requirements.txt```
 1. Clone this repo <br>
 ```git clone https://github.com/Mayukhdeb/worm-embryo-classifier.git```
 2. navigate into the folder <br>
