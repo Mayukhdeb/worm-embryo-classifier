@@ -1,0 +1,8 @@
+Werkzeug
+Flask
+numpy
+gevent
+pillow
+torch
+torchvision==0.1.8
+opencv-python
